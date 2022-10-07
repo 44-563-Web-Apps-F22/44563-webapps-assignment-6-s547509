@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <title>Music Details</title> 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 <body>
 
 <h2>Musician guess by Rohith Reddy Annadi</h2>
@@ -13,7 +16,7 @@
     <label for="form1_nick">Guess the musician </label>
     <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
-    <input type="button" onclick="checkGuess()" value="Check the guess">
+    <input type="button" class="text-danger" onclick="checkGuess()" value="Check the guess">
 </form>
 
 
@@ -22,6 +25,11 @@
 <script>
 correct = 0
 wrong = 0
+
+c1 = 0
+c2 = 0
+
+
 function checkGuess(){
     console.log("Getting form values")
     age = document.getElementById("form1_age").value
@@ -29,10 +37,20 @@ function checkGuess(){
     out = document.getElementById("result")
     if(age==nick){
         correct = correct + 1
+        c1 = c1+1
         out.innerHTML = "correct -" + correct + "," + "wrong -" + wrong
         alert("You got it right")
     } else {
         wrong = wrong + 1
+        c2 = c2+1
+        if(c1==0&&c2%3==0&&c2!=0){
+            alert("Sorry, game over!")
+            return
+        }
+        else if(c1>0){
+            c1=0
+            c2=0
+        }
         out.innerHTML = "correct -" + correct + "," + "wrong -" + wrong
         alert("Wrong Musician")
     }

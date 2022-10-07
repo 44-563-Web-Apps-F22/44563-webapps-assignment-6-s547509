@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
  <title>Vacation Updates</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 <body>
 <h2>Rohith Reddy Annadi selects a Vacation</h2>
 <form>
@@ -13,7 +16,7 @@
     <label for="form1">Resort</label>
     <input type ="checkbox" id="form1" name="form1_nick" autofocus value="False"> <br>
 
-    <input type="button" onclick="selectvacation()" value="Select a vacation"><br>
+    <input type="button" class="text-info bg-dark" onclick="selectvacation()" value="Select a vacation"><br>
 </form>
 
 
@@ -51,10 +54,7 @@ function selectvacation(){
     {
         my_vacation.form1=false;
     }
-    
-
     document.getElementById("result").innerHTML=JSON.stringify(my_vacation)
-
 }
 </script>
 
@@ -67,7 +67,8 @@ function selectvacation(){
 <br>
     <input type="button"  value="Update the vacation" onclick="updateVacation()">
     <p id="result"></p>
-</form> 
+</form>
+
 <script>
 function updateVacation()
 {
@@ -75,10 +76,8 @@ let city=document.getElementById("city").value;
 let price=document.getElementById("price").value;
 my_vacation["city"]=city;
 my_vacation["price"]=price;
-
 document.getElementById("result").innerHTML=JSON.stringify(my_vacation)
 }
-
 </script>
 
 </body>
